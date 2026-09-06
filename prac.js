@@ -206,3 +206,23 @@ console.log(calculate(multiply, 1, 2, 3, 4, 5));
     console.log(b());
     console.log(b());
 }
+
+{
+    function bankAccount(){
+        let balance = 0;
+
+        return{
+            deposit(amount){
+                balance+=amount;
+            },
+
+            getBalance(){
+                return balance;
+            }
+        };
+    }
+
+    const account=bankAccount();
+    account.deposit(100);
+    console.log(account.getBalance());
+}
