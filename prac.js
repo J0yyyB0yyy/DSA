@@ -196,4 +196,13 @@ console.log(calculate(multiply, 1, 2, 3, 4, 5));
             return count;
         };
     }
+
+    const a = counter();
+    console.log(a());
+    console.log(a());
+    console.log(a());
+    const b = counter();
+    console.log(b());
+    console.log(b());
+    console.log(b());
 }
