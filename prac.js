@@ -212,10 +212,10 @@ console.log(calculate(multiply, 1, 2, 3, 4, 5));
         let balance = 0;
 
         return{
-            deposit(amount){
+            credit(amount){
                 balance+=amount;
             },
-            credit(amount){
+            debit(amount){
                 balance-=amount;
             },
             getBalance(){
