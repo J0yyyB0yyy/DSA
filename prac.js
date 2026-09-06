@@ -215,7 +215,9 @@ console.log(calculate(multiply, 1, 2, 3, 4, 5));
             deposit(amount){
                 balance+=amount;
             },
-
+            credit(amount){
+                balance-=amount;
+            },
             getBalance(){
                 return balance;
             }
