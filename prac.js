@@ -225,6 +225,124 @@ console.log(calculate(multiply, 1, 2, 3, 4, 5));
     }
 
     const account=bankAccount();
-    account.deposit(100);
+    account.credit(100);
     console.log(account.getBalance());
+}
+
+{
+    function Person(name, age){
+        this.name=name;
+        this.age=age;
+
+        this.greet = function(){
+            console.log(`Hi, I'm ${this.name}.`);
+        };
+    }
+
+    const p1 = new Person("Gulok", 20);
+    const p2 = new Person("Aman", 20);
+
+    p1.greet()
+}
+
+{
+    function Person(name, age){
+        this.name=name;
+        this.age=age;
+    }
+    Person.prototype.greet = function(){
+        console.log(`Hi, I'm ${this.name}.`);
+    };
+    Person.prototype.showAge=function(){
+        console.log(`My age is ${this.age}.`);
+    }
+    console.log(typeof Person);
+
+    
+    const p = new Person("Aman", 20);
+    console.log(p);
+    console.log(Person.prototype);
+    console.log(typeof(p));
+}
+
+{
+    class Person{
+        constructor(name, age){
+            this.name=name;
+            this.age=age;
+        }
+        greet(){
+            console.log(`Hello ${this.name}`);
+        }
+    }
+    console.log(typeof Person);
+
+    const p = new Person("Hello", 10);
+}
+
+{
+    const student = {
+        name: "Gulok",
+        age: 20,
+        course: "cse",
+
+        greet : function(){
+            console.log(`Hello, my name is ${this.name}.`);
+        },
+
+        address:{
+            city: "Silchar",
+            state: "Assam"
+
+        }
+        
+    };
+    const key = "age";
+    console.log(student.name);
+    console.log(student[key]);
+    console.log(student["course"]);
+    student["RollNo"] = "csbm25004";
+    delete student.course;
+    console.log("course" in student);
+    student.greet();
+    console.log(student.address.state);
+}
+
+{
+    const key = "name";
+
+    const Person={
+        [key]: "Alex"
+    };
+}
+
+{
+    //Destructuring
+
+    const Person ={
+        name: "Hello",
+        age: 20
+    }
+    const copy = { //shallow copy
+        ...Person 
+    }
+    const {name, age} = Person;
+    console.log(name, age);
+    console.log(Object.keys(Person));
+    console.log(Object.values(Person));
+    console.log(Object.entries(Person));
+
+    for(const [key, values] in Object.entries(Person)){
+        console.log(key, value);
+    }
+
+    for(const key in Person){
+        console.log(key, Person[key]);
+    }
+
+}
+
+
+{
+    const person = new Object();
 }
