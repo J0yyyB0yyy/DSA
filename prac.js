@@ -332,7 +332,7 @@ console.log(calculate(multiply, 1, 2, 3, 4, 5));
     console.log(Object.values(Person));
     console.log(Object.entries(Person));
 
-    for(const [key, values] in Object.entries(Person)){
+    for(const [key, value] in Object.entries(Person)){
         console.log(key, value);
     }
 
@@ -345,4 +345,72 @@ console.log(calculate(multiply, 1, 2, 3, 4, 5));
 
 {
     const person = new Object();
+}
+
+{
+    function Student(name, age){
+        if(!(this instanceof Student)){
+            throw new Error("Student must be called with new");
+        }
+        this.name=name;
+        this.age=age;
+        this.greet=function(){
+            console.log("Hello!!");
+        }
+    }
+    Student.prototype.getName=function(){
+        console.log(`The name is ${this.name}.`);
+    }
+
+    const s1=new Student("Gulok", 20);
+}
+
+{
+    function Person(name, age){
+        this.name=name;
+        this.age=age;
+
+        return{
+            message:"object created but a different object returned"
+        };
+    }
+    const p = new Person("Hello", 20);
+    console.log(p);
+}
+
+{
+    class Person{
+        constructor(name, age){
+            this.name=name;
+            this.age=age;
+        }
+        greet(){
+            console.log("Hello!!!");
+        }
+    }
+    const p = new Person("Hello", 12);
+}
+
+{
+    function bankAccount(owner, balance){
+        this.owner=owner;
+        this.balance=balance;
+    }
+
+    bankAccount.prototype.deposit=function(amount){
+        this.balance+=amount;
+    }
+
+    bankAccount.prototype.withdraw=function(amount){
+        if(amount>this.balance){
+            console.log("Insufficient balance!");
+            return;
+        }
+        this.balance-=amount;
+
+    }
+
+    bankAccount.prototype.getBalance=function(){
+        return this.balance;
+    }
 }
